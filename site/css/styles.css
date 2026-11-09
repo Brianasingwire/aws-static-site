@@ -234,6 +234,42 @@ strong {
 }
 
 /* ==========================================================================
+   404 page
+   ========================================================================== */
+
+.not-found {
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding-top: 4rem;
+}
+
+.not-found__code {
+  color: var(--brown-800);
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--brown-800);
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: var(--rose-800);
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--rose-800);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
    Utilities
    ========================================================================== */
 
