@@ -1,0 +1,280 @@
+/* ==========================================================================
+   Fonts (self-hosted)
+   ========================================================================== */
+
+@font-face {
+  font-family: "Outfit";
+  src: url("../assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Young Serif";
+  src: url("../assets/fonts/young-serif/YoungSerif-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Design tokens (from style-guide.md)
+   ========================================================================== */
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --stone-100: hsl(30, 54%, 90%);
+  --stone-150: hsl(30, 18%, 87%);
+  --stone-600: hsl(30, 10%, 34%);
+  --stone-900: hsl(24, 5%, 18%);
+  --brown-800: hsl(14, 45%, 36%);
+  --rose-800: hsl(332, 51%, 32%);
+  --rose-50: hsl(330, 100%, 98%);
+
+  --font-body: "Outfit", system-ui, sans-serif;
+  --font-heading: "Young Serif", Georgia, serif;
+
+  --card-padding: 2rem;
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+body {
+  min-height: 100vh;
+  background-color: var(--white);
+  color: var(--stone-600);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Recipe card
+   ========================================================================== */
+
+.recipe {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 var(--card-padding) 2.5rem;
+  background-color: var(--white);
+}
+
+/* Mobile: image bleeds to the edges of the screen */
+.recipe__image {
+  width: calc(100% + 2 * var(--card-padding));
+  max-width: none;
+  margin-inline: calc(-1 * var(--card-padding));
+  aspect-ratio: 1312 / 600;
+  object-fit: cover;
+}
+
+.recipe__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.recipe__title {
+  color: var(--stone-900);
+  font-size: 2.25rem;
+}
+
+/* ==========================================================================
+   Preparation time box
+   ========================================================================== */
+
+.prep {
+  padding: 1.5rem 1.75rem;
+  border-radius: 0.75rem;
+  background-color: var(--rose-50);
+}
+
+.prep__title {
+  margin-bottom: 1rem;
+  color: var(--rose-800);
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Content sections
+   ========================================================================== */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section__title {
+  color: var(--brown-800);
+  font-size: 1.75rem;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--stone-150);
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.list li {
+  padding-left: 1rem;
+}
+
+.list li::marker {
+  color: var(--brown-800);
+}
+
+.list--prep li::marker {
+  color: var(--rose-800);
+}
+
+.list--ordered li::marker {
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Nutrition table
+   ========================================================================== */
+
+.nutrition {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nutrition tr:not(:last-child) {
+  border-bottom: 1px solid var(--stone-150);
+}
+
+.nutrition th,
+.nutrition td {
+  padding: 0.75rem 2rem;
+  text-align: left;
+}
+
+.nutrition tr:first-child th,
+.nutrition tr:first-child td {
+  padding-top: 0;
+}
+
+.nutrition tr:last-child th,
+.nutrition tr:last-child td {
+  padding-bottom: 0;
+}
+
+.nutrition th {
+  width: 45%;
+  font-weight: 400;
+}
+
+.nutrition td {
+  color: var(--brown-800);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Attribution footer
+   ========================================================================== */
+
+.attribution {
+  padding: 1.5rem 1rem;
+  font-size: 0.6875rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Tablet & desktop
+   ========================================================================== */
+
+@media (min-width: 48rem) {
+  :root {
+    --card-padding: 2.5rem;
+  }
+
+  body {
+    padding: 8rem 1.5rem 2rem;
+    background-color: var(--stone-100);
+  }
+
+  .recipe {
+    max-width: 46rem;
+    margin-inline: auto;
+    padding: var(--card-padding);
+    border-radius: 1.5rem;
+  }
+
+  .recipe__image {
+    width: 100%;
+    margin-inline: 0;
+    border-radius: 0.75rem;
+  }
+
+  .recipe__title {
+    font-size: 2.5rem;
+  }
+}
