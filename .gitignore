@@ -1,16 +1,25 @@
-# Avoid accidental upload of the Sketch and Figma design files
-#####################################################
-## Please do not remove lines 5 and 6 - thanks! 🙂 ##
-#####################################################
+# Secrets and credentials: never commit these
+.env
+.env.*
+*.pem
+*.key
+.aws/
+
+# Terraform (if used)
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+crash.log
+.terraform.tfstate.lock.info
+
+# Design source files (from the Frontend Mentor starter)
 *.sketch
 *.fig
-
-# Avoid accidental XD upload if you convert the design file
-###############################################
-## Please do not remove line 12 - thanks! 🙂 ##
-###############################################
 *.xd
 
-# Avoid your project being littered with annoying .DS_Store files!
+# OS and editor clutter
 .DS_Store
-.prettierignore
+Thumbs.db
+.vscode/
+.idea/
